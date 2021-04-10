@@ -32,7 +32,7 @@ const renderProduct = (product) => {
 const renderPage = (list) => {
     document.querySelector(".products").innerHTML = list.map(item => renderProduct(item)).join("");
     //убираем запятые методом join с пустым разделителем
-    //запятые - разделитель по умолчанию в массиве.
+    //запятые - разделитель по умолчанию в массиве, который приводится к строке методом insertAdjacentHTML.
 };
 
 renderPage(products);

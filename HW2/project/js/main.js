@@ -1,5 +1,5 @@
-class GoodsList {
-    constructor(container = '.products') {
+class ProductsList {
+    constructor(container = ".products") {
         this.container = container;
         this.goods = [];
         this._fetchProducts();
@@ -10,7 +10,7 @@ class GoodsList {
             {id: 1, title: "Notebook", price: 2000},
             {id: 2, title: "Mouse", price: 20},
             {id: 3, title: "Keyboard", price: 200},
-            {id: 4, title: "Gamepad", price: 50},
+            {id: 4, title: "Gamepad", price: 50}
         ];
     }
     render() {
@@ -22,11 +22,9 @@ class GoodsList {
     }
 // Метод для вычисления общей стоимости товаров в массиве
     getTotalSum () {
-        let sum = 0;
-        this.goods.forEach(product => sum += product.price);
-        console.log(sum);
+        let result = this.goods.reduce((sum, {price}) => sum + price, 0);
+        console.log(result);
     }
-
 }
 
 class ProductItem {
@@ -57,7 +55,7 @@ class ShopCart {
     removeGoods() {
 
     }
-    //Метод передает html-разметку товаров в корзине
+    //Метод передает html-разметку товаров в корзину
     render() {
 
     }
@@ -71,6 +69,6 @@ class ShopCartItem {
     }
 }
 
-let list = new GoodsList();
+let list = new ProductsList();
 list.render();
 list.getTotalSum();
