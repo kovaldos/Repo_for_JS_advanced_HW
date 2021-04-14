@@ -1,3 +1,4 @@
+const API = "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses"
 /**
  * Базовый класс каталога товаров
  *параметр по умолчанию - контейнер (div с классом container) для католога
@@ -6,30 +7,46 @@ class ProductsList {
     constructor(container = ".products") {
         this.container = container;
         this.goods = [];
-        this._fetchProducts();
+        this.allProducts = [];//массив объектов
+        // this._fetchProducts();
+        this._getProducts() // теперь берем массив объектов с товарами как будто с сервера
+            .then(data => { //data - объект js
+                this.goods = [...data];
+                this.render();
+            });
     }
+
 
     /**
      *Метод для заполнения массива goods объектами с товарами
      * @private инкапсулирован в данный базовый класс
      */
-    _fetchProducts() {
-        this.goods = [
-            {id: 1, title: "Notebook", price: 2000},
-            {id: 2, title: "Mouse", price: 20},
-            {id: 3, title: "Keyboard", price: 200},
-            {id: 4, title: "Gamepad", price: 50}
-        ];
+    // _fetchProducts() {
+    //     this.goods = [
+    //         {id: 1, title: "Notebook", price: 2000},
+    //         {id: 2, title: "Mouse", price: 20},
+    //         {id: 3, title: "Keyboard", price: 200},
+    //         {id: 4, title: "Gamepad", price: 50}
+    //     ];
+    // }
+    /**
+     * Метод берет с API массив объектов со свойствами товаров
+     * @returns {Promise<any>} возвращает промис
+     * @private инкапсулирован в базовый класс ProductList
+     */
+    _getProducts(){
+        return fetch(`${API}/catalogData.json`)//возвращается промис
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
     }
 
-    /**
-     *Метод базового класса
-     *создает объекты с товарами
-     */
     render() {
         const block = document.querySelector(this.container);
         for(let product of this.goods) {
             const productObj = new ProductItem(product);// объект на основе класса ProductItem
+            this.allProducts.push(productObj);
             block.insertAdjacentHTML("beforeend", productObj.render());
         }
     }
@@ -39,8 +56,7 @@ class ProductsList {
      * и выводит в консоль
       */
     getTotalSum () {
-        let result = this.goods.reduce((sum, {price}) => sum + price, 0);
-        console.log(result);
+        return this.goods.reduce((sum, item) => sum + item.price, 0);
     }
 }
 
@@ -50,16 +66,20 @@ class ProductsList {
  */
 class ProductItem {
     constructor(product, img = "http://placehold.it/250x300") {
-        this.title = product.title;
+        this.product_name = product.product_name;
         this.price = product.price;
         this.id = product.id;
         this.img = img;
     }
 
+    /**
+     * Метод класса ProductItem возвращает разметку единицы товара
+     * @returns {string} строка с блоком html разметки
+     */
     render() {
         return `<div class="product-item" data-id="${this.id}">
                 <img src ="${this.img}" alt="product">
-                <h3>${this.title}</h3>
+                <h3>${this.product_name}</h3>
                 <p>${this.price}</p>
                 <button class="buy-btn">Купить</button>
             </div>`
@@ -72,6 +92,7 @@ class ShopCart {
     addGoods() {
 
     }
+
     //Метод удаляет товар из корзины
     removeGoods() {
 
@@ -92,4 +113,4 @@ class ShopCartItem {
 
 let list = new ProductsList();//объект класса ProductList
 list.render();//отрисовываем объект list
-list.getTotalSum();
+

@@ -1,8 +1,7 @@
-"use strict"
-
+//класс описывает вложенные свойства елементов бургера
 class Param {
     constructor(element) {
-        this.name = element.value;
+        this.name = element.value;//название свойства (
         this.price = +element.dataset.price;
         this.calories = +element.dataset.calories;
     }
@@ -10,8 +9,8 @@ class Param {
 
 class Burger {
     constructor(size, add, topping){
-        this.size = new Param(this._select(size));
-        this.add = new Param(this._select(add));
+        this.size = new Param(this._select(size));//у свойства есть вложенные свойства
+        this.add = new Param(this._select(add));//поэтому они созданы как объекты класса Param
         this.toppings = this._getToppings(topping);
     }
 
