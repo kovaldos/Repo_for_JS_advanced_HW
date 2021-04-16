@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="HW4_3.css">
+</head>
+<body>
+<form action="#" id="form" class="form-with-validation">
+    <fieldset>
+        <input type="text" id="name" placeholder="enter your name">
+        <input type="tel" id="phone" placeholder=" enter your phone number">
+        <input type="email" id="email" placeholder="enter your email">
+        <button class="send-btn" id="val-btn" type="submit">Send</button>
+    </fieldset>
+</form>
+<script src="app_for_HW4_3.js">
+    /*
+3.
+Создать форму обратной связи с полями: Имя, Телефон, E-mail, текст, кнопка Отправить. При нажатии на кнопку Отправить произвести валидацию полей следующим образом:
+a. Имя содержит только буквы.
+b. Телефон имеет вид +7(000)000-0000.
+c. E-mail имеет вид mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru.
+d. Текст произвольный.
+e. Если одно из полей не прошло валидацию, необходимо выделить это поле красной рамкой и сообщить пользователю об ошибке.
+    */
+</script>
+<script>
+    window.onload = () => {
+        document.getElementById("form").addEventListener("submit", event => {
+            let valid = new Validator("form");
+            if(!valid.valid){
+                event.preventDefault();
+            }
+        })
+    }
+</script>
+</body>
+</html>

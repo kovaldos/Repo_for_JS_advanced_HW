@@ -1,0 +1,29 @@
+* {
+  margin: 0 auto;
+}
+
+.form-with-validation {
+  display: flex;
+  height: 150px;
+}
+.form-with-validation input {
+  margin-top: 20px;
+  min-width: 300px;
+  min-height: 50px;
+}
+.form-with-validation input:focus {
+  outline: none;
+}
+.form-with-validation .send-btn {
+  padding: 20px;
+  margin: 20px;
+  max-width: 100px;
+}
+.form-with-validation .invalid {
+  outline: red;
+}
+.form-with-validation .valid {
+  outline: green;
+}
+
+/*# sourceMappingURL=HW4_3.css.map */
