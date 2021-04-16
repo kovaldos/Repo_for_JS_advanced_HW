@@ -39,8 +39,7 @@ class ProductsList {
      * и выводит в консоль
       */
     getTotalSum () {
-        let result = this.goods.reduce((sum, {price}) => sum + price, 0);
-        console.log(result);
+        console.log(this.goods.reduce((sum, {price}) => sum + price, 0));
     }
 }
 

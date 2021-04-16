@@ -127,9 +127,6 @@ header .cart-block:before {
   border-right: 10px solid transparent;
   border-bottom: 10px solid darkgray;
 }
-header .invisible {
-  display: none;
-}
 header .cart-item {
   display: flex;
   justify-content: space-between;
