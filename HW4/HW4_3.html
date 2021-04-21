@@ -8,9 +8,14 @@
 <body>
 <form action="#" id="form" class="form-with-validation">
     <fieldset>
-        <input type="text" id="name" placeholder="enter your name">
-        <input type="tel" id="phone" placeholder=" enter your phone number">
-        <input type="email" id="email" placeholder="enter your email">
+        <input type="text" class="name-input success" id="name" placeholder="enter your name">
+        <div class="error-msg">Имя должно содержать только буквы</div>
+        <input type="tel" class="phone-input error" id="phone" placeholder=" enter your phone number">
+        <div class="error-msg">Телефон имеет вид +7(000)000-0000</div>
+        <input type="email" class="email-input" id="email" placeholder="enter your email">
+        <div class="error-msg">E-mail имеет вид <span>mymail@mail.ru</span><br>или <span>my.mail@mail.ru</span> или <span>my-mail@mail.ru</span></div>
+        <textarea name="message" class="text-input" id="text" cols="30" rows="10"></textarea>
+        <div class="error-msg">Введите Ваше сообщение</div>
         <button class="send-btn" id="val-btn" type="submit">Send</button>
     </fieldset>
 </form>

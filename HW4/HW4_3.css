@@ -3,27 +3,61 @@
 }
 
 .form-with-validation {
+  margin: 50px;
   display: flex;
-  height: 150px;
+  min-height: 300px;
+}
+.form-with-validation .success {
+  border: 2px solid green;
+}
+.form-with-validation .error {
+  border: 2px solid red;
+}
+.form-with-validation .error-msg {
+  color: red;
+  font-family: "Arial Narrow", serif;
+  letter-spacing: 0.05em;
 }
 .form-with-validation input {
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
   min-width: 300px;
   min-height: 50px;
+  border: 2px solid grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
 }
 .form-with-validation input:focus {
   outline: none;
 }
+.form-with-validation textarea {
+  margin: 20px 0 20px 0;
+  min-width: 300px;
+  border: 2px solid grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
 .form-with-validation .send-btn {
   padding: 20px;
   margin: 20px;
-  max-width: 100px;
+  min-width: 100%;
+  align-self: center;
 }
 .form-with-validation .invalid {
   outline: red;
 }
 .form-with-validation .valid {
   outline: green;
+}
+
+fieldset {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  position: relative;
+  border: 2px solid grey;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
 }
 
 /*# sourceMappingURL=HW4_3.css.map */

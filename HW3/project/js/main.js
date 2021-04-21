@@ -31,9 +31,8 @@ class GoodsList {
         const block = document.querySelector(this.container);
         for (let product of this.goods){
             //console.log(this.constructor.name);
-            const productObj = new this.list[this.constructor.name](product);//мы сделали объект товара либо CartItem, либо ProductItem
-                                                                             //в зависимости от того, какой конструктор вызывает?
-                                                                            // свойство name - это название конструктора?
+            const productObj = new this.list[this.constructor.name](product);//мы сделали объект товара либо CartItem, либо ProductItem в зависимости от того, какой конструктор вызывает?
+            // свойство name - это название конструктора?
             console.log(productObj);
             this.allProducts.push(productObj);
             block.insertAdjacentHTML("beforeend", productObj.render());
