@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<header>
+    <div class="header__top center">
+        <a href="index.html" class="logo">E-shop</a>
+        <form action="#" class="header__form" @submit.prevent="filter">
+            <search-form v-model="searchLine"></search-form>
+            <button class="search-btn" ><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div class="header__bottom center">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html" class="menu__link">Главная</a></li>
+                <li><a href="#" class="menu__link">Каталог</a></li>
+                <li><a href="#" class="menu__link">Услуги</a></li>
+                <li><a href="#" class="menu__link">Доставка</a></li>
+                <li><a href="#" class="menu__link">О нас</a></li>
+            </ul>
+        </nav>
+        <div class="cart">
+            <button class="btn-cart" type="button" @click="showCart = !showCart"></button>
+            <cart :cart-goods="cartGoods"
+            :img="imgCart"
+            :visibility="showCart"
+            @remove="removeProduct"></cart>
+        </div>
+
+    </div>
+
+</header>
+<main>
+        <div class="center">
+            <products :products="filteredGoods"
+            :img="imgCatalog"
+            @add-product="addProduct"></products>
+        </div>
+</main>
+</div>
+<script defer src="https://kit.fontawesome.com/5eef817402.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/FilterComponent.js"></script>
+<script src="js/ProductComponent.js"></script>
+<script src="js/CartComponent.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
