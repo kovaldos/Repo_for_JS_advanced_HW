@@ -10,10 +10,7 @@
 <header>
     <div class="header__top center">
         <a href="index.html" class="logo">E-shop</a>
-        <form action="#" class="header__form" @submit.prevent="filter">
-            <search-form v-model="searchLine"></search-form>
-            <button class="search-btn" ><i class="fas fa-search"></i></button>
-        </form>
+        <search-form v-model="searchLine"></search-form>
     </div>
     <div class="header__bottom center">
         <nav>
@@ -46,7 +43,7 @@
 </div>
 <script defer src="https://kit.fontawesome.com/5eef817402.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/FilterComponent.js"></script>
+<script src="js/SearchComponent.js"></script>
 <script src="js/ProductComponent.js"></script>
 <script src="js/CartComponent.js"></script>
 <script src="js/main.js"></script>
