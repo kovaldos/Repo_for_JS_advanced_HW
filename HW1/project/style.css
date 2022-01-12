@@ -43,7 +43,7 @@ header .circles {
   justify-content: space-around;
   align-items: center;
 }
-header .item {
+header .circle {
   height: 100%;
   width: 15%;
   border-radius: 50%;
@@ -52,6 +52,9 @@ header .item {
 header .header__search {
   width: 700px;
   height: 50%;
+}
+header .header__search:focus {
+  outline: none;
 }
 header .header__bottom {
   height: 50%;

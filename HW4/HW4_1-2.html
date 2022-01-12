@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //1. Дан большой текст, в котором для оформления прямой речи используются одинарные кавычки. Придумать шаблон, который заменяет одинарные кавычки на двойные.
+
+    let str = "One: 'Hi Mary.' Two: 'Oh, hi.'\n" +
+        "One: 'How are you doing?'\n" +
+        "Two: 'I'm doing alright. How about you?'\n" +
+        "One: 'Not too bad. The weather is great isn't it?'\n" +
+        "Two: 'Yes. It's absolutely beautiful today.'\n" +
+        "One: 'I wish it was like this more frequently.'\n" +
+        "Two: 'Me too.'\n" +
+        "One: 'So where are you going now?'\n" +
+        "Two: 'I'm going to meet a friend of mine at the department store.'\n" +
+        "One: 'Going to do a little shopping?'\n" +
+        "Two: 'Yeah, I have to buy some presents for my parents.'\n" +
+        "One: 'What's the occasion?'\n" +
+        "Two: 'It's their anniversary.'\n" +
+        "One: 'That's great. Well, you better get going. You don't want to be late.'\n" +
+        "Two: 'I'll see you next time.'\n" +
+        "One: 'Sure. Bye.'";
+
+    //console.log(str.replace(/'/g,'"'));
+
+    //2. Улучшить шаблон так, чтобы в конструкциях типа aren't одинарная кавычка не заменялась на двойную.
+
+    console.log(str.replace(/\B'|'\B/g, '"')); // \b - граница слова, в верхнем регистре работает противоположно как оператор !
+    // . Т.е. здесь реплейс затронет только одинарные кавычки с краев строк.
+
+</script>
+</body>
+</html>

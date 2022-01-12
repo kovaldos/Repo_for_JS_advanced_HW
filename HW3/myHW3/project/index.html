@@ -8,11 +8,7 @@
 <body>
 <header>
     <div class="header__top center">
-        <div class="circles">
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-        </div>
+        <a href="index.html" class="logo">E-shop</a>
         <form class="header__form" action="#">
             <input class="header__search" type="search">
         </form>
@@ -27,12 +23,15 @@
                 <li><a href="#" class="menu__link">О нас</a></li>
             </ul>
         </nav>
-        <button class="btn-cart" type="button"></button>
+        <div class="cart">
+            <button class="btn-cart" type="button"></button>
+            <div class="cart-block invisible"></div>
+        </div>
     </div>
 
 </header>
 <main>
-        <div class="products center"></div>
+    <div class="products center"></div>
 </main>
 <script src="js/main.js"></script>
 </body>
